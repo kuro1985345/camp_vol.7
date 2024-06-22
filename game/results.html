@@ -1,1 +1,18 @@
-<!-- 投票結果を表示するテンプレート -->
+<!-- game/templates/game/results.html -->
+
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <title>多数派ゲーム - 投票結果</title>
+</head>
+<body>
+    <h1>{{ question.question_text }} の結果</h1>
+    <ul>
+        {% for choice in question.choice_set.all %}
+            <li>{{ choice.choice_text }} - {{ choice.votes }} 票</li>
+        {% endfor %}
+    </ul>
+    <a href="{% url 'game:index' %}">質問一覧に戻る</a>
+</body>
+</html>
